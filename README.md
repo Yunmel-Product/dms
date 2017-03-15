@@ -8,10 +8,10 @@ Give a try to this minimal template with very few dependencies for quick develop
 ## Install
 ``` bash
 # Clone the repository once
-$ git clone https://github.com/pastahito/electron-vue-webpack
+$ git clone https://github.com/Yunmel-Product/dms.git
 
 # Go into the repository (rename it as you wish)
-$ cd electron-vue-webpack
+$ cd dms
 
 # Install the 7 only dependencies once
 $ npm install
@@ -62,5 +62,4 @@ You don't really need more stuff to start playing around with Electron, Vue 2 an
 ```
 
 ## Related
-- [electron-react-webpack](https://github.com/pastahito/electron-react-webpack) -
-Electron template using React instead of Vue 2.
+- [electron-react-webpack](https://github.com/pastahito/electron-vue-webpack) 
