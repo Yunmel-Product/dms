@@ -29,7 +29,7 @@ module.exports = {
                 loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
             },
             {
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\.(png|jpg|gif|svg|sqlite)$/,
                 loader: 'file-loader',
                 query: {
                     name: '[name].[ext]?[hash]'

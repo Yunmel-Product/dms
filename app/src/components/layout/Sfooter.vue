@@ -1,7 +1,8 @@
 <template>
-    <div class="player" ng-controller="PlayerCtrl">
+    <div class="player">
         <div class="player_inner">
-            <button  v-on:click="testjs" class="player_queueList">
+            <button v-on:click="testjs"
+                    class="player_queueList">
                 list列表
             </button>
         </div>
@@ -14,7 +15,7 @@
     bottom: 0;
     left: 200px;
     width: 100%;
-    height:50px;
+    height: 50px;
     background: #FEFEFE;
     border-top: 1px solid #C7C7C7;
     display: flex;
@@ -51,30 +52,29 @@
     position: relative;
 }
 
-.player_queueList{
+.player_queueList {
     position: fixed;
-    right: 0;     
+    right: 0;
 }
-
 </style>
 
 
 <script>
-    var showListtag = 1;
-    export default {
-        methods: {
-          testjs:function(msg){
-        
+var showListtag = 1;
+export default {
+    methods: {
+        testjs: function (msg) {
+
             var lists = document.querySelector('.queueList');
-            if(showListtag==0){
-                lists.style.display="";
-                showListtag =1;
-            }else{
-                lists.style.display="none";
+            if (showListtag == 0) {
+                lists.style.display = "";
+                showListtag = 1;
+            } else {
+                lists.style.display = "none";
                 showListtag = 0;
-            }   
-          }
+            }
         }
     }
-   
+}
+
 </script>

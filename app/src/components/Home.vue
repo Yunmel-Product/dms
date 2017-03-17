@@ -1,11 +1,13 @@
 <template>
     <div>
         <h3>首页</h3>
-        <div id='content'>{{content}}</div>
+        <div>{{content}}</div>
     </div>
 </template>
 
 <<script>
+
+
  export default {
      data(){
         return {
@@ -18,6 +20,7 @@
        }, (response) => {
             // 响应错误回调
        });
+     
     }
  }
 </script>

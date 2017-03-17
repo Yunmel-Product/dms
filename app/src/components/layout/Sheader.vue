@@ -18,8 +18,7 @@
     border-bottom: 1px solid #C7C7C7;
     box-shadow: 0 0 7px 0px #C7C7C7;
     z-index: 100;
-    color:#fff;
+    color: #fff;
     -webkit-app-region: drag;
 }
-
 </style>
