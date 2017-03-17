@@ -1,25 +1,24 @@
 <template>
    <div id="app" >
     <el-row class="tac">
-        <TopFrame></TopFrame>
+        <Sheader></Sheader>
         <NaviMenu></NaviMenu>
         <MainView></MainView>
-        <BootomCtrl></BootomCtrl>
+        <Sfooter></Sfooter>
         <QueueList></QueueList>
-        
     </el-row>
     </div>
 </template>
 <script>
 
-    import NaviMenu from './components/NaviMenu.vue'
-    import TopFrame from './components/TopFrame.vue'
-    import MainView from './components/MainView.vue'
-    import BootomCtrl from './components/BootomCtrl.vue'
+    import NaviMenu from './components/layout/NaviMenu.vue'
+    import Sheader from './components/layout/Sheader.vue'
+    import MainView from './components/layout/MainView.vue'
+    import Sfooter from './components/layout/Sfooter.vue'
     import QueueList from './components/QueueList.vue'
     export default {
         components: {
-           TopFrame, NaviMenu,MainView,BootomCtrl,QueueList
+           Sheader, NaviMenu,MainView,Sfooter,QueueList
         },
         methods: {
           showConfirm:function(msg){
@@ -27,11 +26,6 @@
           }
         }
     }
-   
-
-
-
-
 </script>
 
 

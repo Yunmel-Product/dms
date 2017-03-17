@@ -8,8 +8,8 @@
 .mainView {
     padding-left: 10px 20px;
     margin-left: 200px;
-    margin-top:50px;
-    overflow-y: scroll;
+    margin-top:80px;
+    overflow-y: auto; 
     overflow-x: hidden;
     height: 100%;
 }

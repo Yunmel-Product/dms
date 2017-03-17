@@ -12,7 +12,7 @@
     top: 0;
     bottom: 0;
     width: 350px;
-    padding: 70px 0 70px;
+    padding: 80px 0 70px;
     display: block;
     overflow-y: scroll;
     transition: all .5s ease-in-out;

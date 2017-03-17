@@ -77,11 +77,11 @@
 
 <style>
 .aside {
-    background: #222326;
+    background: #3C4852;
     border-right: 1px solid #000;
     width: 200px;
     position: fixed;
-    top: 50px;
+    top: 0px;
     bottom: 0;
     left: 0;
 }

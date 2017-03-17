@@ -12,11 +12,11 @@
 .player_inner {
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 200px;
     width: 100%;
-    height:80px;
-    background: #222326;
-    border-top: 1px solid #000;
+    height:50px;
+    background: #FEFEFE;
+    border-top: 1px solid #C7C7C7;
     display: flex;
     flex-direction: row;
     z-index: 1;
@@ -77,7 +77,4 @@
         }
     }
    
-
-
-
 </script>
