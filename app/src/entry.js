@@ -13,6 +13,7 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(ElementUI);
 
+const remote = require('electron').remote;
 
 const router = new VueRouter({
     routes: [

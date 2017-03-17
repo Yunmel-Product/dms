@@ -1,7 +1,10 @@
 // Basic init
 const electron = require('electron')
+const SQL = require('sql.js')
+const fs = require('fs')
 const { app, BrowserWindow } = electron
-
+//主进程
+const ipc = require('electron').ipcMain;
 const db_file = 'app.db'
     // Let electron reloads by itself when webpack watches changes in ./app/
 require('electron-reload')(__dirname)
@@ -16,10 +19,18 @@ app.on('ready', () => {
     mainWindow.loadURL('file://' + __dirname + '/app/index.html')
 
     mainWindow.webContents.on('did-finish-load', () => {
-        database = init_db()
+        try {
+            database = init_db()
+        } catch (e) {
+            console.log(e)
+        }
+
     })
 })
 
+/**
+ * 初始化数据库
+ */
 function init_db() {
     try {
         var stats = fs.statSync(db_file)
@@ -29,12 +40,13 @@ function init_db() {
         var data = db.export()
         var buffer = new Buffer(data)
         fs.writeFileSync(db_file, buffer)
-
-        applog("made new database ")
     }
-
-    applog("read in database ")
-
     var filebuffer = fs.readFileSync(db_file)
     return new SQL.Database(filebuffer)
 }
+
+
+ipc.on('say-hello', function(e, args) {
+    console.log(args);
+    e.returnValue = 'pongs';
+})
