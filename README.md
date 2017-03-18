@@ -3,7 +3,7 @@ Got tired finding Electron/Vue2/Webpack2 templates with fancy add-ons you don't 
 
 Give a try to this minimal template with very few dependencies for quick development and prototyping.
 
-![w10 sample](https://cloud.githubusercontent.com/assets/11739632/19222705/0f8c55fc-8e5f-11e6-97fa-0d3943f43358.png)
+![w10 sample](https://github.com/Yunmel-Product/dms/blob/master/app/src/assets/183224.png)
 
 ## Install
 ``` bash
