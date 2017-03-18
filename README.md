@@ -28,7 +28,7 @@ $ npm start
 
 ## Template structure
 ```
-├── dms/               # Your project's name
+├── dms/                                # Your project's name
 
     ├── app/
 
