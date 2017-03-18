@@ -9,6 +9,9 @@ import Home from './components/Home.vue';
 import ProImglist from './components/ProImglist.vue';
 import MyImglist from './components/MyImglist.vue';
 
+//vux 
+import store from './store/store'
+
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(ElementUI);
@@ -26,5 +29,6 @@ const router = new VueRouter({
 new Vue({
     el: '#app',
     router,
+    store,
     render: h => h(App)
 })

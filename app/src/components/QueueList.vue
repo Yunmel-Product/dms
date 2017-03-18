@@ -1,6 +1,9 @@
 <template>
-    <div class="queueList" id="queueList">
-        list
+    <div class="queueList"
+         id="queueList">
+        <ul>
+            <li v-for='item in uploadList'>{{item.name}}</li>
+        </ul>
     </div>
 </template>
 
@@ -17,8 +20,20 @@
     overflow-y: scroll;
     transition: all .5s ease-in-out;
 }
+
 * {
     box-sizing: border-box;
     cursor: default;
 }
 </style>
+
+<script>
+export default {
+    computed: {
+        uploadList() {
+            return this.$store.getters.uploadList;
+        }
+    }
+
+}
+</script>

@@ -1,10 +1,10 @@
 <template>
     <div class="player">
         <div class="player_inner">
-            <button v-on:click="testjs"
-                    class="player_queueList">
-                list列表
-            </button>
+            <el-button type="primary"
+                       class="player_queueList"
+                       icon="share"
+                       v-on:click="listCtr()"></el-button>
         </div>
     </div>
 </template>
@@ -53,18 +53,17 @@
 }
 
 .player_queueList {
+    padding-top: 10px;
     position: fixed;
-    right: 0;
+    right: 10px;
 }
 </style>
-
 
 <script>
 var showListtag = 1;
 export default {
     methods: {
-        testjs: function (msg) {
-
+        listCtr() {
             var lists = document.querySelector('.queueList');
             if (showListtag == 0) {
                 lists.style.display = "";
