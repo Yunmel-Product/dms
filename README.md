@@ -1,7 +1,5 @@
-# electron-vue-webpack
-Got tired finding Electron/Vue2/Webpack2 templates with fancy add-ons you don't really need?
+# electron-vue-file-manage
 
-Give a try to this minimal template with very few dependencies for quick development and prototyping.
 
 ![w10 sample](https://github.com/Yunmel-Product/dms/blob/master/app/src/assets/183224.png)
 
@@ -27,15 +25,10 @@ $ npm run dev
 $ npm start
 ```
 
-## What's included
-You don't really need more stuff to start playing around with Electron, Vue 2 and Webpack 2.
-
-- Support for .vue (single file components). Use them with HTML & ES6 & CSS.
-- No Express, neither Babel is needed (more than 97% ES6 is supported in Node/Electron).
 
 ## Template structure
 ```
-├── electron-vue-webpack/               # Your project's name
+├── dms/               # Your project's name
 
     ├── app/
 
@@ -61,5 +54,5 @@ You don't really need more stuff to start playing around with Electron, Vue 2 an
     ├── webpack.config.js               # Minimal webpack setup
 ```
 
-## Related
+## thks
 - [electron-vue-webpack](https://github.com/pastahito/electron-vue-webpack) 
