@@ -62,4 +62,4 @@ You don't really need more stuff to start playing around with Electron, Vue 2 an
 ```
 
 ## Related
-- [electron-react-webpack](https://github.com/pastahito/electron-vue-webpack) 
+- [electron-vue-webpack](https://github.com/pastahito/electron-vue-webpack) 
