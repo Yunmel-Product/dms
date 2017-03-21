@@ -25,7 +25,6 @@ const mutations = {
     },
     ADD_2_QUEUE(state, obj) {
         state.uploadList.push(obj)
-        console.log(state.uploadList.length)
     }
 }
 

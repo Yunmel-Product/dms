@@ -42151,7 +42151,6 @@ const mutations = {
     },
     ADD_2_QUEUE(state, obj) {
         state.uploadList.push(obj);
-        console.log(state.uploadList.length);
     }
 };
 
@@ -51848,12 +51847,27 @@ const { dialog } = __webpack_require__(8).remote;
         //    }, (response) => {
         //         // 响应错误回调
         //    });
-        console.log(remote);
+        this.select();
     },
     methods: {
         select() {
             var res = ipc.sendSync('select', 'SELECT * FROM FILE_LIST');
-            console.log(res);
+            var obj = res[0];
+            var list = new Array();
+            if (obj) {
+                console.log(obj);
+                var values = obj.values;
+                var columns = obj.columns;
+                for (var i = 0; i < values.length; i++) {
+                    let result = new Object();
+                    for (var j = 0; j < columns.length; j++) {
+                        result[columns[j]] = values[i][j];
+                    }
+                    //list.push(result);
+                    this.$store.dispatch('addFile2Queue', result);
+                }
+            }
+            console.log(list);
         },
         insert() {
             //`AirportID` varchar,`Name` varchar, `City` varchar, `State` varchar)

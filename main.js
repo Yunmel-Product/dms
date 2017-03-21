@@ -45,7 +45,7 @@ function init_db() {
         var stats = fs.statSync(db_file)
     } catch (err) {
         var db = new SQL.Database()
-        db.run("CREATE TABLE FILE_LIST (`ID` varchar,`Name` varchar, `PATH` varchar, `State` varchar);")
+        db.run("CREATE TABLE FILE_LIST (`id` varchar,`name` varchar, `path` varchar, `state` varchar);")
         var data = db.export()
         var buffer = new Buffer(data)
         fs.writeFileSync(db_file, buffer)
