@@ -9,14 +9,7 @@ const state = {
 }
 
 const getters = {
-    // uploadList: state => {
-    //     let items = new Array()
-    //     items.push({ name: 'admin', email: 'admin@gmail.com' });
-    //     items.push({ name: 'as', email: 'admin@gmail.com' });
-    //     items.push({ name: 'sdds', email: 'admin@gmail.com' });
-    //     store.commit('SET_UPLOAD_LIST', items)
-    //     return state.uploadList
-    // }
+
 }
 
 const mutations = {
@@ -25,6 +18,25 @@ const mutations = {
     },
     ADD_2_QUEUE(state, obj) {
         state.uploadList.push(obj)
+    },
+    UPDATE_PROCESS(state) {
+        state.uploadList.forEach(function(item, index) {
+            if (item.process < 100) {
+                item.process += 1;
+            }
+        });
+    },
+    DELETE_FILE(state, id) {
+        let delIndex;
+        state.uploadList.forEach(function(item, index) {
+            if (item.id == id) {
+                delIndex = index;
+                return;
+            }
+        });
+        if (delIndex) {
+            state.uploadList.splice(delIndex, 1);
+        }
     }
 }
 

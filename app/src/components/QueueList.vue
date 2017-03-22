@@ -1,8 +1,16 @@
 <template>
     <div class="queueList"
          id="queueList">
+        <h3>上传列表</h3>
         <ul>
-            <li v-for='item in uploadList'>{{item.name}}</li>
+            <li v-for='item in uploadList'>
+                {{item.name}}
+                <el-progress :percentage="item.process"></el-progress>
+                <el-button :plain="true"
+                           type="danger"
+                           size="mini"
+                           v-on:click="deleteItem(item.id)">删除</el-button>
+            </li>
         </ul>
     </div>
 </template>
@@ -28,10 +36,19 @@
 </style>
 
 <script>
+let that;
 export default {
     computed: {
         uploadList() {
             return this.$store.getters.uploadList;
+        }
+    },
+    mounted() {
+        that = this;
+    },
+    methods: {
+        deleteItem(id) {//deleteFile
+            that.$store.dispatch('deleteFile', id);
         }
     }
 

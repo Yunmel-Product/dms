@@ -5,7 +5,7 @@
         <el-button type="primary"
                    v-on:click="select()">查询</el-button>
         <el-button type="primary"
-                   v-on:click="insert()">添加</el-button>
+                   v-on:click="updateProcess()">更新进度</el-button>
         <el-button size="small"
                    type="primary"
                    v-on:click="selectFile()">上传文件</el-button>
@@ -19,7 +19,9 @@
 
 const remote = require('electron').remote;
 const ipc = require('electron').ipcRenderer;
-const { dialog } = require('electron').remote
+const { dialog } = require('electron').remote;
+const fs = require('fs');
+let that;
  export default {
      data(){
         return {
@@ -32,7 +34,7 @@ const { dialog } = require('electron').remote
     //    }, (response) => {
     //         // 响应错误回调
     //    });
-       this.select()
+        that = this;
     },
     methods:{
         select(){
@@ -54,10 +56,6 @@ const { dialog } = require('electron').remote
              }
              console.log(list);
         },
-        insert(){
-            //`AirportID` varchar,`Name` varchar, `City` varchar, `State` varchar)
-            this.$store.dispatch('addFile2Queue', { name: 'zahnfsn', email: 'admin@gmail.com' });
-        },
         selectFile(){
             dialog.showOpenDialog({
                     properties: ['openFile','multiSelections'],
@@ -65,15 +63,28 @@ const { dialog } = require('electron').remote
                         { name: '图片', extensions: ['png', 'jpg','jpeg'] }
                     ]
                 }, function(res) {
-                   ipc.send('select-files',res);
+                    res.forEach(function(item, index) {
+                        let stats = fs.statSync(item);
+                        let filename = item.split(/[\\/]/).pop();
+                        let id =  that.$nextId();
+                         //insert文件到数据库
+                        let sql = "INSERT INTO FILE_LIST VALUES('" + id + "','" + filename + "','" + res[index] + "','0')";
+                        that.$insert(sql);
+                         //添加文件到上传列表
+                        that.$store.dispatch('addFile2Queue', {id:id, name: filename,process:40 });
+                    })
+                                   
             })
         },
         selectFolder(){
             dialog.showOpenDialog({
                     properties: ['openDirectory']
                 }, function(res) {
-                   ipc.send('select-directory',res);
+                   that.$insertDirectory(res);
             })
+        },
+        updateProcess(){
+            that.$store.dispatch('updateProcess');
         }
     }
  }

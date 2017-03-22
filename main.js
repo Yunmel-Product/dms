@@ -32,8 +32,6 @@ app.on('ready', () => {
 })
 
 app.on('will-quit', (e, code) => {
-    //console.info('will-quit:' + code);
-
     syncDatabase();
 })
 
@@ -70,45 +68,16 @@ ipc.on('insert-db', function(e, args) {
     insertDb(args);
 })
 
-ipc.on('select-files', function(e, args) {
-    if (!args) return;
-    args.forEach(function(item, index) {
-        try {
-            var stats = fs.statSync(item);
-            var sql = "INSERT INTO FILE_LIST VALUES('" + nextId() + "','" + args[index] + "','" + args[index] + "','0')";
-            console.log(sql);
-            insertDb(sql);
-        } catch (err) {
-            console.error(e);
-        }
-    })
-})
-
-ipc.on('select-directory', function(e, args) {
-    console.log(args);
-})
-
 function syncDatabase() {
     var data = database.export()
     var buffer = new Buffer(data)
     fs.writeFileSync(db_file, buffer)
 }
 
-function nextId() { // Public Domain/MIT
-    var d = new Date().getTime();
-    if (typeof performance !== 'undefined' && typeof performance.now === 'function') {
-        d += performance.now(); //use high-precision timer if available
-    }
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = (d + Math.random() * 16) % 16 | 0;
-        d = Math.floor(d / 16);
-        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
-}
-
 function insertDb(sql) {
     try {
         //database.exec("BEGIN TRANSACTION;");
+        console.log(sql);
         database.exec(sql);
         //database.exec("COMMIT;");
         // syncDatabase();
