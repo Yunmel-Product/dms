@@ -10,7 +10,7 @@ import Home from './components/Home.vue';
 import ProImglist from './components/ProImglist.vue';
 import MyImglist from './components/MyImglist.vue';
 
-//vux 
+//vuex
 import store from './store/store'
 
 Vue.use(VueRouter);

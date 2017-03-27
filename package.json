@@ -12,6 +12,8 @@
   "license": "Apache License Version 2.0",
   "dependencies": {
     "element-ui": "^1.2.4",
+    "pouchdb": "^6.1.2",
+    "pouchdb-browser": "^6.1.2",
     "sql.js": "^0.4.0",
     "vue": "^2.2.2",
     "vue-resource": "^1.2.1",
@@ -30,6 +32,7 @@
     "css-loader": "^0.26.1",
     "electron": "^1.6.2",
     "electron-reload": "^1.0.2",
+    "electron-rebuild": "^1.5.7",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.0",
     "style-loader": "^0.13.1",

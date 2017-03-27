@@ -16,9 +16,9 @@ module.exports = {
 
     module: {
         loaders: [{
-                test: /\.vue$/,
-                loader: 'vue-loader'
-            },
+            test: /\.vue$/,
+            loader: 'vue-loader'
+        },
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
@@ -26,7 +26,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+                loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
             },
             {
                 test: /\.(png|jpg|gif|svg|sqlite)$/,
@@ -45,7 +45,7 @@ module.exports = {
         new ExtractTextPlugin("style.css")
     ],
     resolve: {
-        alias: { vue: 'vue/dist/vue.js' }
+        alias: {vue: 'vue/dist/vue.js'}
     }
 
 }
